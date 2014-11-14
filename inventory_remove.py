@@ -5,7 +5,7 @@ import sys
 import datetime
 
 
-def main():
+def main(config):
 	file = open('inventory.inv', 'r')
 	inventoryarr = pickle.load(file)
 	file.close()

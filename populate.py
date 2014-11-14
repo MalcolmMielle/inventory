@@ -17,7 +17,7 @@ def run():
 				input = cleanInput(input)
 			profile[var] = input
 			
-	simple_request("DEFAULT_EXPIRY_TIME", "Default expiry time")
+	simple_request("DEFAULT_EXPIRY_TIME", "Default expiry time", int)
 	simple_request("API_KEY", "Api Key for upcdatabase")
 
 	# write to profile

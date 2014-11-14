@@ -17,7 +17,6 @@ def main(config):
 		else:
 			itemname = upc + "Unknown"
 		length = inventoryarr[upc][0][0]
-		print length
 		for key in inventoryarr[upc][1:]:
 			buydate = key
 			newdate = buydate + datetime.timedelta(days=length)

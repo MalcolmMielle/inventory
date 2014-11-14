@@ -7,6 +7,7 @@ import inventory_modifyname
 import inventory_daily
 import inventory_printout
 import inventory_addname
+import yaml
 
 import argparse
 
@@ -16,6 +17,15 @@ parser.add_argument('action', action='store', help='The action we want to perfor
 args = parser.parse_args()
 #print args.accumulate(args.integers)
 print "You have selected \"" + args.action + "\"."
+
+print "Trying to read config file"
+try:
+	with open("profile.txt", "r") as f:
+		config = yaml.safe_load(f)
+except OSError:
+	print "Can't open config file. Are you sure you ran opulate.py ?"
+	raise
+
 
 {'add' : inventory_add.main, 'addmanually' : inventory_addname.main, 'modifyexpiry' : inventory_modifyexpiry.main, 'modifyname' : inventory_modifyname.main, 'daily' : inventory_daily.main, 'remove' : inventory_remove.main, 'printout' : inventory_printout.main}[args.action]()
 

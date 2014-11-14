@@ -9,11 +9,6 @@ import simplejson
 import inventory_grabcronometer
 import requests
 
-DEFAULT_EXPIRY_TIME = 100
-#The default expiry time for items, in days.
-CODE = "61013befb66ae034fad7c0d6a784d147"
-#API key access
-
 def main():
 	try:
 		with open('inventory.inv', 'r') as filename:
@@ -44,7 +39,7 @@ def main():
 				continue
 
 			params = {'upc' : upc }
-			url="http://api.upcdatabase.org/json/"+CODE+"/"+upc
+			url="http://api.upcdatabase.org/json/"+config["API_KEY"]+"/"+upc
 			bcodeinfo = requests.get(url).json()
 			print bcodeinfo
 
@@ -55,7 +50,7 @@ def main():
 			if bcodeinfo['description']:
 				bcodeinfo['itemname'] += bcodeinfo['description']
 				
-			inventoryarr[upc] = [[DEFAULT_EXPIRY_TIME,bcodeinfo['itemname']]]
+			inventoryarr[upc] = [[config["DEFAULT_EXPIRY_TIME"],bcodeinfo['itemname']]]
 			inventoryarr[upc].append(itemdata)
 
 		print "Successfully entered upc " + upc

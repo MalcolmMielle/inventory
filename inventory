@@ -26,6 +26,5 @@ except OSError:
 	print "Can't open config file. Are you sure you ran opulate.py ?"
 	raise
 
-
-{'add' : inventory_add.main, 'addmanually' : inventory_addname.main, 'modifyexpiry' : inventory_modifyexpiry.main, 'modifyname' : inventory_modifyname.main, 'daily' : inventory_daily.main, 'remove' : inventory_remove.main, 'printout' : inventory_printout.main}[args.action]()
+{'add' : inventory_add.main, 'addmanually' : inventory_addname.main, 'modifyexpiry' : inventory_modifyexpiry.main, 'modifyname' : inventory_modifyname.main, 'daily' : inventory_daily.main, 'remove' : inventory_remove.main, 'printout' : inventory_printout.main}[args.action](config)
 

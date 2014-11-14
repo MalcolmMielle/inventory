@@ -3,7 +3,7 @@
 import pickle
 import sys
 
-def main():
+def main(config):
 	file = open('inventory.inv', 'r')
 	inventoryarr = pickle.load(file)
 	file.close()

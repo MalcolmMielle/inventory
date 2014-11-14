@@ -9,8 +9,7 @@ def main(config):
 	file.close()
 
 	while True:
-		print "Enter the EAN code of an item you wish to modify."
-		linetmp = sys.stdin.readline()
+		linetmp = raw_input("Enter the EAN code of an item you wish to modify : ")
 		if not linetmp:
 			break
 		#line = linetmp.rstrip()[7:]
@@ -20,14 +19,15 @@ def main(config):
 		except:
 			print "This EAN doesn't exist in the database."
 			break
-		print "Please enter the name for this item (in days):"
-		length = sys.stdin.readline()
+		print 
+		length = raw_input("Please enter the name for this item : ")
 		if length:
 			#predate = inventoryarr[line][0][1]
 			inventoryarr[line][0][1]=length
 			print "Name updated to " + length.rstrip() + "."
 
-
+	print "this is your inventory"
+	print inventoryarr
 	file = open('inventory.inv', 'w')
 	pickle.dump(inventoryarr,file)
 	file.close()

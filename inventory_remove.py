@@ -6,7 +6,7 @@ import datetime
 
 
 def main(config):
-	file = open('inventory.inv', 'r')
+	file = open(config['inventory'], 'r')
 	inventoryarr = pickle.load(file)
 	file.close()
 
@@ -32,7 +32,7 @@ def main(config):
 	print inventoryarr
 
 
-	file = open('inventory.inv', 'w')
+	file = open(config['inventory'], 'w')
 	pickle.dump(inventoryarr,file)
 	file.close()
 

@@ -9,8 +9,8 @@ MYEMAIL = "test@test.com"
 MYFROM = "test@inventory.com"
 HOST = "localhost"
 
-def main():
-	file = open('inventory.inv', 'r')
+def main(config):
+	file = open(config['inventory'], 'r')
 	inventoryarr = pickle.load(file)
 	file.close()
 
@@ -37,7 +37,7 @@ def main():
 
 
 
-	file = open('inventory.inv', 'w')
+	file = open(config['inventory'], 'w')
 	pickle.dump(inventoryarr,file)
 	file.close()
 

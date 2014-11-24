@@ -12,7 +12,7 @@ import webbrowser
 
 def main(config):
 	try:
-		with open('inventory.inv', 'r') as filename:
+		with open(config['inventory'], 'r') as filename:
 			inventoryarr = pickle.load(filename)
 			filename.close()
 	except IOError:
@@ -77,7 +77,7 @@ def main(config):
 	print "Your current inventory contains:"
 	print inventoryarr
 
-	file = open('inventory.inv', 'w')
+	file = open(config['inventory'], 'w')
 	pickle.dump(inventoryarr,file)
 	file.close()
 
